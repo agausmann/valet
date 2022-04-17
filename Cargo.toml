@@ -1,10 +1,11 @@
 [package]
 name = "valet"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["Adam Gausmann <agausmann@fastmail.com>"]
 edition = "2021"
 description = "Stores your objects and gives you a tag to retrieve them later."
 readme = "README.md"
+repository = "https://github.com/agausmann/valet"
 license = "MIT"
 keywords = ["object", "store", "self-referential"]
 categories = ["data-structures"]
