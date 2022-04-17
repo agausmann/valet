@@ -72,22 +72,16 @@ impl<T> Valet<T> {
         handle
     }
 
-    pub fn get(&self, handle: &Tag<T>) -> &T {
-        self.items
-            .get(handle)
-            .expect("handle is invalid for this depot")
+    pub fn get(&self, handle: &Tag<T>) -> Option<&T> {
+        self.items.get(handle)
     }
 
-    pub fn get_mut(&mut self, handle: &Tag<T>) -> &mut T {
-        self.items
-            .get_mut(handle)
-            .expect("handle is invalid for this depot")
+    pub fn get_mut(&mut self, handle: &Tag<T>) -> Option<&mut T> {
+        self.items.get_mut(handle)
     }
 
-    pub fn remove(&mut self, handle: &Tag<T>) -> T {
-        self.items
-            .remove(handle)
-            .expect("handle is invalid for this depot")
+    pub fn remove(&mut self, handle: &Tag<T>) -> Option<T> {
+        self.items.remove(handle)
     }
 
     pub fn len(&self) -> usize {
@@ -99,12 +93,12 @@ impl<'a, T> ops::Index<&'a Tag<T>> for Valet<T> {
     type Output = T;
 
     fn index(&self, idx: &'a Tag<T>) -> &Self::Output {
-        self.get(idx)
+        self.get(idx).expect("tag is not present in this valet")
     }
 }
 
 impl<'a, T> ops::IndexMut<&'a Tag<T>> for Valet<T> {
     fn index_mut(&mut self, idx: &'a Tag<T>) -> &mut Self::Output {
-        self.get_mut(idx)
+        self.get_mut(idx).expect("tag is not present in this valet")
     }
 }
