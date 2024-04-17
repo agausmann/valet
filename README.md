@@ -1,5 +1,9 @@
 # Valet
 
+**No longer maintained.** I recommend the more popular [slotmap](https://crates.io/crates/slotmap) crate.
+
+<hr>
+
 Stores your objects, and gives you a tag to retrieve them later.
 
 This is my own solution to the problem of self-referential data. A common
